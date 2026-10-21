@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demon List - Portal</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --primary-color: #bb86fc;
+            --text-color: #e0e0e0;
+            --border-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 12px;
+            cursor: pointer;
+            transition: color 0.2s, border-bottom 0.2s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: -2px;
+        }
+
+        .form-section {
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            background: #2a2a2a;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-color);
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        button.submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: #121212;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button.submit-btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('signup')">Sign Up</button>
+            <button class="tab-btn" onclick="switchTab('submit')">Submit Record</button>
+        </div>
+
+        <!-- Account Signup Form -->
+        <div id="signup-section" class="form-section active">
+            <h2>Create Account</h2>
+            <form onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required placeholder="Choose a password">
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Submit Record Form -->
+        <div id="submit-section" class="form-section">
+            <h2>Submit a Record</h2>
+            <form onsubmit="handleRecordSubmit(event)">
+                <div class="form-group">
+                    <label for="player-name">Player Name</label>
+                    <input type="text" id="player-name" required placeholder="Your exact display name">
+                </div>
+                <div class="form-group">
+                    <label for="demon-level">Demon Level</label>
+                    <select id="demon-level" required>
+                        <option value="" disabled selected>Select a level</option>
+                        <option value="level1">Extended List Level Alpha</option>
+                        <option value="level2">Extended List Level Beta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="video-proof">Video Proof URL</label>
+                    <input type="url" id="video-proof" required placeholder="YouTube or Twitch link with raw clicks">
+                </div>
+                <div class="form-group">
+                    <label for="raw-footage">Raw Footage / Comments (Optional)</label>
+                    <input type="text" id="raw-footage" placeholder="Additional clicks/FPS info">
+                </div>
+                <button type="submit" class="submit-btn">Submit Record</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Toggle active tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.form-section').forEach(section => section.classList.remove('active'));
+
+            if (tabName === 'signup') {
+                document.querySelector('.tabs button:nth-child(1)').classList.add('active');
+                document.getElementById('signup-section').classList.add('active');
+            } else {
+                document.querySelector('.tabs button:nth-child(2)').classList.add('active');
+                document.getElementById('submit-section').classList.add('active');
+            }
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            alert('Signup form submitted! (Connect this to your backend authentication logic)');
+        }
+
+        function handleRecordSubmit(event) {
+            event.preventDefault();
+            alert('Record submitted successfully! Awaiting moderator review.');
+        }
+    </script>
+
+</body>
+</html>
