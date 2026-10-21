@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demonlist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="site-name"></h1>
+    <p id="site-tagline"></p>
+  </header>
+
+  <nav>
+    <button data-tab="levels" class="active">Levels</button>
+    <button data-tab="players">Players</button>
+  </nav>
+
+  <main>
+    <section id="levels"></section>
+    <section id="players" hidden></section>
+  </main>
+
+  <footer>Made with a simple static site. Edit <code>data.js</code> to change anything.</footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
