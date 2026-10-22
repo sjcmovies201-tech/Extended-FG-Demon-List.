@@ -27,7 +27,7 @@ const SUPABASE_KEY = "";   // the "Publishable" key (or the older "anon" key)
 /* ---------- 3) DEMO DATA (only used in demo mode) ---------- */
 const DEMO_LEVELS = [
   { name: "Blade of Justice",   creator: "Manix648", verifier: "GDStripes", video: "https://www.youtube.com/watch?v=wazGj4JZ11o&t=143s", gameId: "35448603", requirement: 100 },
-  { name: "Torsion",   creator: "Raivolt", verifier: "Particlez", video: "https://youtu.be/rNfXD2Y9QjU?si=B1-1FWfeNcz176pZ", gameId: "65982725", requirement: 100 },
+  { name: "Torsion",   creator: "Raivolt", verifier: "Particlez", video: "https://youtu.be/0pclHfE62kM?si=EUfGeUszuzsWCdtz", gameId: "65982725", requirement: 100 },
   { name: "Example Level Three", creator: "Builder C", verifier: "Player C", video: "", gameId: "", requirement: 100 },
   { name: "Example Level Four",  creator: "Builder D", verifier: "Player A", video: "", gameId: "", requirement: 100 },
   { name: "Example Level Five",  creator: "Builder E", verifier: "Player B", video: "", gameId: "", requirement: 100 },
