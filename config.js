@@ -10,8 +10,8 @@
 const SITE = {
   name: "The UFGIG Demonlist",                       // big title at the top
   tagline: "The hardest levels, beaten from our group!",     // small text under the title
-  mainListSize: 75,       // levels #1 to #75 are the "Main List"
-  extendedListSize: 150,  // levels #76 to #150 are the "Extended List"
+  mainListSize: 25,       // levels #1 to #75 are the "Main List"
+  extendedListSize: 25,  // levels #76 to #150 are the "Extended List"
                           // anything after that is the "Legacy List" (0 points)
   top1Points: 350         // how many points the #1 level is worth
 };
@@ -28,7 +28,7 @@ const SUPABASE_KEY = "";   // the "Publishable" key (or the older "anon" key)
 const DEMO_LEVELS = [
   { name: "Blade of Justice",   creator: "Manix648", verifier: "GDStripes", video: "https://www.youtube.com/watch?v=wazGj4JZ11o&t=143s", gameId: "35448603", requirement: 100 },
   { name: "Torsion",   creator: "Raivolt", verifier: "Particlez", video: "https://youtu.be/0pclHfE62kM?si=EUfGeUszuzsWCdtz", gameId: "65982725", requirement: 100 },
-  { name: "Example Level Three", creator: "Builder C", verifier: "Player C", video: "", gameId: "", requirement: 100 },
+  { name: "Evangelion", creator: "Yoonsr", verifier: "Particlez", video: "https://www.youtube.com/watch?v=ATh4tbIz0HM", gameId: "62151546", requirement: 100 },
   { name: "Example Level Four",  creator: "Builder D", verifier: "Player A", video: "", gameId: "", requirement: 100 },
   { name: "Example Level Five",  creator: "Builder E", verifier: "Player B", video: "", gameId: "", requirement: 100 },
 ];
