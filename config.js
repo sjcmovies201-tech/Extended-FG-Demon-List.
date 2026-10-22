@@ -8,8 +8,8 @@
 
 /* ---------- 1) YOUR WEBSITE'S NAME AND SETTINGS ---------- */
 const SITE = {
-  name: "My Demonlist",                       // big title at the top
-  tagline: "The hardest levels, ranked.",     // small text under the title
+  name: "The UFGIG Demonlist",                       // big title at the top
+  tagline: "The hardest levels, beaten from our group!",     // small text under the title
   mainListSize: 75,       // levels #1 to #75 are the "Main List"
   extendedListSize: 150,  // levels #76 to #150 are the "Extended List"
                           // anything after that is the "Legacy List" (0 points)
@@ -26,7 +26,7 @@ const SUPABASE_KEY = "";   // the "Publishable" key (or the older "anon" key)
 
 /* ---------- 3) DEMO DATA (only used in demo mode) ---------- */
 const DEMO_LEVELS = [
-  { name: "Example Level One",   creator: "Builder A", verifier: "Player A", video: "", gameId: "", requirement: 100 },
+  { name: "Blade of Justice",   creator: "Manix648", verifier: "GDStripes", video: "https://www.youtube.com/watch?v=wazGj4JZ11o&t=143s", gameId: "35448603", requirement: 100 },
   { name: "Example Level Two",   creator: "Builder B", verifier: "Player B", video: "", gameId: "", requirement: 100 },
   { name: "Example Level Three", creator: "Builder C", verifier: "Player C", video: "", gameId: "", requirement: 100 },
   { name: "Example Level Four",  creator: "Builder D", verifier: "Player A", video: "", gameId: "", requirement: 100 },
