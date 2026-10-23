@@ -33,6 +33,7 @@ const DEMO_LEVELS = [
   { name: "Exotic Energy",  creator: "Ellisha", verifier: "Particlez", video: "https://youtu.be/zuWCnYvMuw4?si=XO0OS855cAokWNBl", gameId: "57312412", requirement: 100 },
   { name: "Robi",  creator: "Robianny", verifier: "GDStripes", video: "https://www.youtube.com/watch?v=WVA2UvN8GHY", gameId: "88172786", requirement: 100 },
   { name: "Cataclysm",  creator: "Gboy", verifier: "Particlez", video: "https://youtu.be/pIEl0fs8riQ", gameId: "3979721", requirement: 100 },
+  { name: "Lost Love",  creator: "TheBlackHell", verifier: "Particlez", video: "https://youtu.be/PYlQ02CsCLM?si=4bgiAYPJZjtpkwA8YouTube", gameId: "85933508", requirement: 100 },
 ];
 const DEMO_RECORDS = [
   { player: "Player A", level: "Example Level One",   progress: 100, video: "" },
