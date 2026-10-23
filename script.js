@@ -294,7 +294,7 @@ async function renderAdmin() {
     ${state.playersMissing ? `<p class="note">To add players and bonus points, run <b>upgrade-players.sql</b> in Supabase once, then refresh.</p>` : ""}
     ${buildPlayers().map(p => `<div class="admin-line">
         <span class="grow"><b>${esc(p.name)}</b><br><span class="note">${p.points.toFixed(2)} from records ${signed(p.bonus)} bonus = <b>${p.total.toFixed(2)} total</b></span></span>
-        <button class="btn small" data-action="ply-edit" data-name="${esc(p.name)}" data-bonus="${p.bonus}">Edit</button>
+        <button class="btn small" data-action="ply-edit" data-name="${esc(p.name)}" data-total="${p.total.toFixed(2)}" data-records="${p.points.toFixed(2)}">Edit</button>
         <button class="btn small red" data-action="ply-del" data-name="${esc(p.name)}">Delete</button>
       </div>`).join("") || `<p class="note">No players yet. Add one below.</p>`}
 
@@ -302,8 +302,8 @@ async function renderAdmin() {
       <h2 id="ply-form-title" style="margin-top:0">Add a player</h2>
       <input type="hidden" id="ply-old">
       <label for="ply-name">Player name</label><input type="text" id="ply-name" maxlength="60" required>
-      <label for="ply-bonus">Bonus points (can be negative)</label><input type="number" id="ply-bonus" step="any" value="0">
-      <p class="note">Bonus points are added to the points the player earns from approved records. Use a negative number to take points away.</p>
+      <label for="ply-total">Total points</label><input type="number" id="ply-total" step="any" value="0">
+      <p class="note" id="ply-hint">Type the total you want this player to have. The site works out the difference from their records for you.</p>
       <button class="btn" type="submit">Save player</button>
       <button class="btn gray" type="button" data-action="ply-clear">Clear form</button>
     </form>
@@ -369,8 +369,13 @@ async function saveLevel() {
 
 async function savePlayer() {
   const name = $("ply-name").value.trim();
-  const bonus = Number($("ply-bonus").value) || 0;
+  const total = Number($("ply-total").value);
   if (!name) return toast("Please type a player name.", true);
+  if (!Number.isFinite(total)) return toast("Please type the total points as a number.", true);
+  // Their record points are automatic; whatever is missing (or extra) is saved as bonus.
+  const key = ($("ply-old").value || name).trim().toLowerCase();
+  const mine = buildPlayers().find(p => p.name.trim().toLowerCase() === key);
+  const bonus = Math.round((total - (mine ? mine.points : 0)) * 10000) / 10000;
   await run(async () => {
     const { error } = await db.rpc("save_player", { p_old: $("ply-old").value || null, p_new: name, p_bonus: bonus });
     if (error) throw error;
@@ -415,10 +420,11 @@ document.addEventListener("click", e => {
   }
   else if (action === "ply-edit") {
     $("ply-form-title").textContent = "Edit player";
-    $("ply-old").value = b.dataset.name; $("ply-name").value = b.dataset.name; $("ply-bonus").value = b.dataset.bonus;
+    $("ply-old").value = b.dataset.name; $("ply-name").value = b.dataset.name; $("ply-total").value = b.dataset.total;
+    $("ply-hint").textContent = "Right now " + b.dataset.records + " of their points come from records. Change the total and save.";
     $("player-form").scrollIntoView({ behavior: "smooth" });
   }
-  else if (action === "ply-clear") { $("player-form").reset(); $("ply-old").value = ""; $("ply-form-title").textContent = "Add a player"; }
+  else if (action === "ply-clear") { $("player-form").reset(); $("ply-old").value = ""; $("ply-form-title").textContent = "Add a player"; $("ply-hint").textContent = ""; }
   else if (action === "ply-del") {
     if (confirm("Delete " + b.dataset.name + " AND all of their records for good?")) run(async () => {
       const { error } = await db.rpc("delete_player", { p_name: b.dataset.name });
