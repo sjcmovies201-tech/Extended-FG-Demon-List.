@@ -6,7 +6,7 @@ let db = null;
 if (!demo) {
   if (window.supabase) db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 }
-const state = { levels: [], records: [] };
+const state = { levels: [], records: [], players: [], playersMissing: false };
 
 // ---------- Points formula ----------
 function baseScore(p) {
@@ -41,6 +41,12 @@ function videoHtml(url) {
   const u = safeUrl(url);
   return u ? `<p><a href="${esc(u)}" target="_blank" rel="noopener">Watch video</a></p>` : "";
 }
+function thumbHtml(url) {
+  const id = youtubeId(url);
+  return id
+    ? `<img class="thumb" src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt="" loading="lazy">`
+    : `<span class="thumb none">no video</span>`;
+}
 function linkOrDash(url) {
   const u = safeUrl(url);
   return u ? `<a href="${esc(u)}" target="_blank" rel="noopener">Watch</a>` : "-";
@@ -70,11 +76,13 @@ async function loadData() {
     state.records = DEMO_RECORDS
       .map((r, i) => ({ id: i + 1, levelId: (byName[String(r.level).toLowerCase()] || {}).id, player: r.player, progress: r.progress, video: r.video }))
       .filter(r => r.levelId);
+    state.players = [];
     return;
   }
-  const [lv, rc] = await Promise.all([
+  const [lv, rc, pl] = await Promise.all([
     db.from("levels").select("*").order("position"),
-    db.from("records").select("id, level_id, player, progress, video").eq("status", "approved")
+    db.from("records").select("id, level_id, player, progress, video").eq("status", "approved"),
+    db.from("players").select("name, bonus_points")
   ]);
   if (lv.error || rc.error) throw (lv.error || rc.error);
   state.levels = lv.data.map((r, i) => ({
@@ -82,6 +90,8 @@ async function loadData() {
     video: r.video, gameId: r.game_id, requirement: r.requirement
   }));
   state.records = rc.data.map(r => ({ id: r.id, levelId: r.level_id, player: r.player, progress: r.progress, video: r.video }));
+  state.playersMissing = !!pl.error;   // happens if upgrade-players.sql hasn't been run yet
+  state.players = pl.error ? [] : pl.data.map(p => ({ name: p.name, bonus: Number(p.bonus_points) || 0 }));
 }
 
 // ---------- Levels tab ----------
@@ -98,6 +108,7 @@ function renderLevels() {
       <div class="row">
         <div class="row-head">
           <span class="rank">#${l.position}</span>
+          ${thumbHtml(l.video)}
           <span class="title">${esc(l.name)}<br><span class="sub">by ${esc(l.creator)}</span></span>
           <span class="pts">${pts ? pts.toFixed(2) + " pts" : "legacy"}</span>
         </div>
@@ -117,18 +128,30 @@ function renderLevels() {
 }
 
 // ---------- Players tab ----------
-function renderPlayers() {
-  const players = {};
+// Combines points from approved records with any bonus points an admin gave.
+function buildPlayers() {
+  const map = {};
+  const get = name => {
+    const k = String(name).trim().toLowerCase();
+    return map[k] = map[k] || { name: String(name).trim(), points: 0, bonus: 0, records: [] };
+  };
   state.records.forEach(r => {
     const lvl = levelById(r.levelId);
     if (!lvl) return;
     const pts = levelPoints(lvl.position, lvl.requirement, r.progress);
-    const key = r.player.trim().toLowerCase();
-    const p = players[key] = players[key] || { name: r.player, points: 0, records: [] };
+    const p = get(r.player);
     p.points += pts;
     p.records.push({ ...r, level: lvl, pts });
   });
-  const sorted = Object.values(players).sort((a, b) => b.points - a.points);
+  state.players.forEach(pl => { const p = get(pl.name); p.name = pl.name; p.bonus = pl.bonus; });
+  const arr = Object.values(map);
+  arr.forEach(p => { p.total = p.points + p.bonus; });
+  return arr.sort((a, b) => b.total - a.total || a.name.localeCompare(b.name));
+}
+function signed(n) { return (n >= 0 ? "+" : "-") + Math.abs(n).toFixed(2); }
+
+function renderPlayers() {
+  const sorted = buildPlayers();
   $("players").innerHTML = sorted.length ? sorted.map((p, i) => {
     const beaten = p.records.filter(r => r.pts > 0).sort((a, b) => a.level.position - b.level.position);
     return `
@@ -136,11 +159,12 @@ function renderPlayers() {
         <div class="row-head">
           <span class="rank">#${i + 1}</span>
           <span class="title">${esc(p.name)}</span>
-          <span class="pts">${p.points.toFixed(2)} pts</span>
+          <span class="pts">${p.total.toFixed(2)} pts</span>
         </div>
         <div class="details">
           <table><tr><th>Level</th><th>%</th><th>Points</th></tr>
           ${beaten.map(r => `<tr><td>#${r.level.position} ${esc(r.level.name)}</td><td>${esc(r.progress)}%</td><td>${r.pts.toFixed(2)}</td></tr>`).join("")}
+          ${p.bonus ? `<tr><td>Bonus points</td><td></td><td>${signed(p.bonus)}</td></tr>` : ""}
           </table>
         </div>
       </div>`;
@@ -266,6 +290,24 @@ async function renderAdmin() {
       <button class="btn gray" type="button" data-action="lvl-clear">Clear form</button>
     </form>
 
+    <h2>Players (${buildPlayers().length})</h2>
+    ${state.playersMissing ? `<p class="note">To add players and bonus points, run <b>upgrade-players.sql</b> in Supabase once, then refresh.</p>` : ""}
+    ${buildPlayers().map(p => `<div class="admin-line">
+        <span class="grow"><b>${esc(p.name)}</b><br><span class="note">${p.points.toFixed(2)} from records ${signed(p.bonus)} bonus = <b>${p.total.toFixed(2)} total</b></span></span>
+        <button class="btn small" data-action="ply-edit" data-name="${esc(p.name)}" data-bonus="${p.bonus}">Edit</button>
+        <button class="btn small red" data-action="ply-del" data-name="${esc(p.name)}">Delete</button>
+      </div>`).join("") || `<p class="note">No players yet. Add one below.</p>`}
+
+    <form class="card" id="player-form">
+      <h2 id="ply-form-title" style="margin-top:0">Add a player</h2>
+      <input type="hidden" id="ply-old">
+      <label for="ply-name">Player name</label><input type="text" id="ply-name" maxlength="60" required>
+      <label for="ply-bonus">Bonus points (can be negative)</label><input type="number" id="ply-bonus" step="any" value="0">
+      <p class="note">Bonus points are added to the points the player earns from approved records. Use a negative number to take points away.</p>
+      <button class="btn" type="submit">Save player</button>
+      <button class="btn gray" type="button" data-action="ply-clear">Clear form</button>
+    </form>
+
     <h2>Approved records (${state.records.length})</h2>
     ${state.records.map(r => {
       const l = levelById(r.levelId);
@@ -325,6 +367,16 @@ async function saveLevel() {
   }, "Level saved.");
 }
 
+async function savePlayer() {
+  const name = $("ply-name").value.trim();
+  const bonus = Number($("ply-bonus").value) || 0;
+  if (!name) return toast("Please type a player name.", true);
+  await run(async () => {
+    const { error } = await db.rpc("save_player", { p_old: $("ply-old").value || null, p_new: name, p_bonus: bonus });
+    if (error) throw error;
+  }, "Player saved.");
+}
+
 // ---------- Clicks and forms ----------
 document.addEventListener("click", e => {
   const head = e.target.closest(".row-head");
@@ -361,6 +413,18 @@ document.addEventListener("click", e => {
     $("lvl-req").value = l.requirement; $("lvl-pos").value = l.position;
     $("level-form").scrollIntoView({ behavior: "smooth" });
   }
+  else if (action === "ply-edit") {
+    $("ply-form-title").textContent = "Edit player";
+    $("ply-old").value = b.dataset.name; $("ply-name").value = b.dataset.name; $("ply-bonus").value = b.dataset.bonus;
+    $("player-form").scrollIntoView({ behavior: "smooth" });
+  }
+  else if (action === "ply-clear") { $("player-form").reset(); $("ply-old").value = ""; $("ply-form-title").textContent = "Add a player"; }
+  else if (action === "ply-del") {
+    if (confirm("Delete " + b.dataset.name + " AND all of their records for good?")) run(async () => {
+      const { error } = await db.rpc("delete_player", { p_name: b.dataset.name });
+      if (error) throw error;
+    }, "Player deleted.");
+  }
   else if (action === "lvl-clear") { $("level-form").reset(); $("lvl-id").value = ""; $("lvl-form-title").textContent = "Add a level"; }
   else if (action === "lvl-del") {
     if (confirm("Delete this level AND all its records for good?")) run(async () => {
@@ -375,6 +439,7 @@ document.addEventListener("submit", async e => {
   e.preventDefault();
   if (e.target.id === "submit-form") submitRecord(e.target);
   else if (e.target.id === "level-form") saveLevel();
+  else if (e.target.id === "player-form") savePlayer();
   else if (e.target.id === "login-form") {
     const { error } = await db.auth.signInWithPassword({ email: $("login-email").value.trim(), password: $("login-pass").value });
     if (error) toast("Login failed: " + error.message, true); else renderAdmin();
