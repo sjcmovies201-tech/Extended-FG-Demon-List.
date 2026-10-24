@@ -39,7 +39,13 @@ const DEMO_LEVELS = [
 const DEMO_RECORDS = [
   { player: "Particlez", level: "Sweater Weather",   progress: 100, video: "https://youtu.be/jUsUtoNaXwM?si=Y5vAkufqxK3Gqc5G" },
   { player: "GDStripes", level: "Sweater Weather", progress: 100, video: "https://www.youtube.com/watch?v=1ko4Pfmg9cE" },
-  { player: "Player B", level: "Example Level Two",   progress: 100, video: "" },
-  { player: "Player B", level: "Example Level Five",  progress: 100, video: "" },
-  { player: "Player C", level: "Example Level Three", progress: 100, video: "" },
+  { player: "GDStripes", level: "Blade Of Justice",   progress: 100, video: "https://www.youtube.com/watch?v=wazGj4JZ11o&t=143s" },
+  { player: "Particlez", level: "Torison",  progress: 100, video: "https://youtu.be/0pclHfE62kM?si=EUfGeUszuzsWCdtz" },
+  { player: "Particlez", level: "Wind Storm", progress: 100, video: "https://youtu.be/jTN5gq3brkI?si=GJDyPCIFy5eRzfPM" },
+  { player: "Particlez", level: "Exotic Energy", progress: 100, video: "https://youtu.be/zuWCnYvMuw4?si=XO0OS855cAokWNBl" },
+  { player: "GDStripes", level: "Robi", progress: 100, video: "https://www.youtube.com/watch?v=WVA2UvN8GHY" },
+  { player: "Particlez", level: "Cataclysm", progress: 100, video: "https://youtu.be/pIEl0fs8riQ" },
+  { player: "Particlez", level: "Lost Love", progress: 100, video: "https://youtu.be/PYlQ02CsCLM?si=4bgiAYPJZjtpkwA8YouTube" },
+  { player: "Particlez", level: "Proteus", progress: 100, video: "https://youtu.be/n8Q8orYBcMg" },
+  { player: "StartingXY", level: "Sweater Weather", progress: 100, video: "https://youtu.be/Dnt5GTrN4sU" },
 ];
