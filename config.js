@@ -34,6 +34,7 @@ const DEMO_LEVELS = [
   { name: "Cataclysm",  creator: "Gboy", verifier: "Particlez", video: "https://youtu.be/pIEl0fs8riQ", gameId: "3979721", requirement: 100 },
   { name: "Lost Love",  creator: "TheBlackHell", verifier: "Particlez", video: "https://youtu.be/PYlQ02CsCLM?si=4bgiAYPJZjtpkwA8YouTube", gameId: "85933508", requirement: 100 },
   { name: "Proteus",  creator: "SpergQuos", verifier: "Particlez", video: "https://youtu.be/n8Q8orYBcMg", gameId: "88943354", requirement: 100 },
+  { name: "Sweater Weather",  creator: "VelYT", verifier: "StartingXY", video: "https://youtu.be/Dnt5GTrN4sU", gameId: "81148582", requirement: 100 },
 ];
 const DEMO_RECORDS = [
   { player: "Player A", level: "Example Level One",   progress: 100, video: "" },
