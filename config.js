@@ -40,7 +40,7 @@ const DEMO_RECORDS = [
   { player: "Particlez", level: "Sweater Weather",   progress: 100, video: "https://youtu.be/jUsUtoNaXwM?si=Y5vAkufqxK3Gqc5G" },
   { player: "GDStripes", level: "Sweater Weather", progress: 100, video: "https://www.youtube.com/watch?v=1ko4Pfmg9cE" },
   { player: "GDStripes", level: "Blade Of Justice",   progress: 100, video: "https://www.youtube.com/watch?v=wazGj4JZ11o&t=143s" },
-  { player: "Particlez", level: "Torison",  progress: 100, video: "https://youtu.be/0pclHfE62kM?si=EUfGeUszuzsWCdtz" },
+  { player: "Particlez", level: "Torsion",  progress: 100, video: "https://youtu.be/0pclHfE62kM?si=EUfGeUszuzsWCdtz" },
   { player: "Particlez", level: "Wind Storm", progress: 100, video: "https://youtu.be/jTN5gq3brkI?si=GJDyPCIFy5eRzfPM" },
   { player: "Particlez", level: "Exotic Energy", progress: 100, video: "https://youtu.be/zuWCnYvMuw4?si=XO0OS855cAokWNBl" },
   { player: "GDStripes", level: "Robi", progress: 100, video: "https://www.youtube.com/watch?v=WVA2UvN8GHY" },
