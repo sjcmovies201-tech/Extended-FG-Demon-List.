@@ -37,8 +37,8 @@ const DEMO_LEVELS = [
   { name: "Sweater Weather",  creator: "VelYT", verifier: "StartingXY", video: "https://youtu.be/Dnt5GTrN4sU", gameId: "81148582", requirement: 100 },
 ];
 const DEMO_RECORDS = [
-  { player: "Player A", level: "Example Level One",   progress: 100, video: "" },
-  { player: "Player A", level: "Example Level Three", progress: 100, video: "" },
+  { player: "Particlez", level: "Sweater Weather",   progress: 100, video: "https://youtu.be/jUsUtoNaXwM?si=Y5vAkufqxK3Gqc5G" },
+  { player: "GDStripes", level: "Sweater Weather", progress: 100, video: "https://www.youtube.com/watch?v=1ko4Pfmg9cE" },
   { player: "Player B", level: "Example Level Two",   progress: 100, video: "" },
   { player: "Player B", level: "Example Level Five",  progress: 100, video: "" },
   { player: "Player C", level: "Example Level Three", progress: 100, video: "" },
