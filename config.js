@@ -35,8 +35,6 @@ const DEMO_LEVELS = [
   { name: "Lost Love",  creator: "TheBlackHell", verifier: "Particlez", video: "https://youtu.be/PYlQ02CsCLM?si=4bgiAYPJZjtpkwA8YouTube", gameId: "85933508", requirement: 100 },
   { name: "Proteus",  creator: "SpergQuos", verifier: "Particlez", video: "https://youtu.be/n8Q8orYBcMg", gameId: "88943354", requirement: 100 },
   { name: "Sweater Weather",  creator: "VelYT", verifier: "StartingXY", video: "https://youtu.be/Dnt5GTrN4sU", gameId: "81148582", requirement: 100 },
-  { name: "Acu",  creator: "Neigefeu", verifier: "Particlez", video: "https://youtu.be/9cbsVsOdosg?si=-ChQgWpPm-P65YPt", gameId: "61079355", requirement: 100 },
-  { name: "Through The Decay",  creator: "Spark", verifier: "GDStripes", video: "https://www.youtube.com/watch?v=yMvLRvXmDxc", gameId: "114933189", requirement: 100 },
 ];
 const DEMO_RECORDS = [
   { player: "Particlez", level: "Sweater Weather",   progress: 100, video: "https://youtu.be/jUsUtoNaXwM?si=Y5vAkufqxK3Gqc5G" },
@@ -50,6 +48,4 @@ const DEMO_RECORDS = [
   { player: "Particlez", level: "Lost Love", progress: 100, video: "https://youtu.be/PYlQ02CsCLM?si=4bgiAYPJZjtpkwA8YouTube" },
   { player: "Particlez", level: "Proteus", progress: 100, video: "https://youtu.be/n8Q8orYBcMg" },
   { player: "StartingXY", level: "Sweater Weather", progress: 100, video: "https://youtu.be/Dnt5GTrN4sU" },
-  { player: "Particlez", level: "Acu", progress: 100, video: "https://youtu.be/9cbsVsOdosg?si=-ChQgWpPm-P65YPt" },
-  { player: "GDStripes", level: "Through The Decay", progress: 100, video: "https://www.youtube.com/watch?v=yMvLRvXmDxc" },
 ];
