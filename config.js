@@ -53,4 +53,3 @@ const DEMO_RECORDS = [
   { player: "Particlez", level: "Acu", progress: 100, video: "https://youtu.be/9cbsVsOdosg?si=-ChQgWpPm-P65YPt" },
   { player: "GDStripes", level: "Through The Decay", progress: 100, video: "https://www.youtube.com/watch?v=yMvLRvXmDxc" },
 ];
-];
