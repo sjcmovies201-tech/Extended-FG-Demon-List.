@@ -37,6 +37,7 @@ const DEMO_LEVELS = [
   { name: "Sweater Weather",  creator: "VelYT", verifier: "StartingXY", video: "https://youtu.be/Dnt5GTrN4sU", gameId: "81148582", requirement: 100 },
   { name: "Acu",  creator: "Neigefeu", verifier: "Particlez", video: "https://youtu.be/9cbsVsOdosg?si=-ChQgWpPm-P65YPt", gameId: "61079355", requirement: 100 },
   { name: "Through The Decay",  creator: "Spark", verifier: "GDStripes", video: "https://www.youtube.com/watch?v=yMvLRvXmDxc", gameId: "114933189", requirement: 100 },
+  { name: "Rose",  creator: "Eggsncoffee", verifier: "Particlez", video: "https://youtu.be/cZh-P3mugO4?si=NthPr_mivTGZAdyT", gameId: "90763727", requirement: 100 },
 ];
 const DEMO_RECORDS = [
   { player: "Particlez", level: "Sweater Weather",   progress: 100, video: "https://youtu.be/jUsUtoNaXwM?si=Y5vAkufqxK3Gqc5G" },
@@ -52,4 +53,5 @@ const DEMO_RECORDS = [
   { player: "StartingXY", level: "Sweater Weather", progress: 100, video: "https://youtu.be/Dnt5GTrN4sU" },
   { player: "Particlez", level: "Acu", progress: 100, video: "https://youtu.be/9cbsVsOdosg?si=-ChQgWpPm-P65YPt" },
   { player: "GDStripes", level: "Through The Decay", progress: 100, video: "https://www.youtube.com/watch?v=yMvLRvXmDxc" },
+  { player: "Particlez", level: "Rose", progress: 100, video: "https://youtu.be/cZh-P3mugO4?si=NthPr_mivTGZAdyT" },
 ];
