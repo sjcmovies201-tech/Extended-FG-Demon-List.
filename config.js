@@ -41,6 +41,7 @@ const DEMO_LEVELS = [
   { name: "Night Terrors",  creator: "Hinds", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=nZAxgcF4VtI", gameId: "15395840", requirement: 100 },
   { name: "Fallen Club",  creator: "Trideapthbear", verifier: "Particlez", video: "https://youtu.be/cWRfUyqqPD4?si=ehRLaamSFkMOSRFA", gameId: "91180803", requirement: 100 },
   { name: "Magma Bound",  creator: "ScorchVX", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=Jr2Z4-aCXS0&t=3s", gameId: "56568010", requirement: 100 },
+  { name: "Windy Landscape",  creator: "Woogi411", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=dKY5rKxTK0s", gameId: "4957691", requirement: 100 },
 ];
 const DEMO_RECORDS = [
   { player: "Particlez", level: "Sweater Weather",   progress: 100, video: "https://youtu.be/jUsUtoNaXwM?si=Y5vAkufqxK3Gqc5G" },
@@ -60,4 +61,5 @@ const DEMO_RECORDS = [
   { player: "StartingXY", level: "Night Terrors", progress: 100, video: "https://www.youtube.com/watch?v=nZAxgcF4VtI" },
   { player: "Particlez", level: "Fallen Club", progress: 100, video: "https://youtu.be/cWRfUyqqPD4?si=ehRLaamSFkMOSRFA" },
   { player: "StartingXY", level: "Magma Bound", progress: 100, video: "https://www.youtube.com/watch?v=Jr2Z4-aCXS0&t=3s" },
+  { player: "StartingXY", level: "Windy Landscape", progress: 100, video: "https://www.youtube.com/watch?v=dKY5rKxTK0s" },
 ];
