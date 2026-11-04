@@ -13,7 +13,7 @@ const SITE = {
   mainListSize: 25,       // levels #1 to #75 are the "Main List"
   extendedListSize: 25,  // levels #76 to #150 are the "Extended List"
                           // anything after that is the "Legacy List" (0 points)
-  top1Points: 350         // how many points the #1 level is worth
+  top1Points: 350         // how many points the   #1 level is worth
 };
 
 /* ---------- 2) CONNECT YOUR DATABASE (Supabase) ----------
