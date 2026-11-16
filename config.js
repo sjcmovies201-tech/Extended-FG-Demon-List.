@@ -45,6 +45,7 @@ const DEMO_LEVELS = [
   { name: "Future Funk",  creator: "JonathanGD", verifier: "Particlez", video: "https://youtu.be/e7lbUH2bgnY?si=mc7KGh7LZzGjw1-H", gameId: "44062068", requirement: 100 },
   { name: "Thermodynamix",  creator: "Flash", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=31RfJQ822Ug", gameId: "38445559", requirement: 100 },
   { name: "Nine Circles",  creator: "Zobros", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=jbWbADw4nIA", gameId: "38445559", requirement: 100 },
+  { name: "Megalovania",  creator: "EternaswipVMAX", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=ZCB_gYNOhSk", gameId: "15427055", requirement: 100 },
 ];
 const DEMO_RECORDS = [
   { player: "Particlez", level: "Sweater Weather",   progress: 100, video: "https://youtu.be/jUsUtoNaXwM?si=Y5vAkufqxK3Gqc5G" },
@@ -68,4 +69,5 @@ const DEMO_RECORDS = [
   { player: "Particlez", level: "Future Funk", progress: 100, video: "https://youtu.be/e7lbUH2bgnY?si=mc7KGh7LZzGjw1-H" },
   { player: "StartingXY", level: "Thermodynamix", progress: 100, video: "https://www.youtube.com/watch?v=31RfJQ822Ug" },
   { player: "StartingXY", level: "Nine Circles", progress: 100, video: "https://www.youtube.com/watch?v=jbWbADw4nIA" },
+  { player: "StartingXY", level: "Megalovania", progress: 100, video: "https://www.youtube.com/watch?v=ZCB_gYNOhSk" },
 ];
