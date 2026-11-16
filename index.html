@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demonlist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="site-name"></h1>
+    <p id="site-tagline"></p>
+  </header>
+
+  <nav>
+    <button data-tab="levels" class="active">Levels</button>
+    <button data-tab="players">Players</button>
+    <button data-tab="submit">Submit record</button>
+    <button data-tab="admin">Admin</button>
+  </nav>
+
+  <div id="msg" class="msg" hidden></div>
+
+  <main>
+    <section id="levels"></section>
+    <section id="players" hidden></section>
+    <section id="submit" hidden></section>
+    <section id="admin" hidden></section>
+  </main>
+
+  <footer>Edit settings in <code>config.js</code>. Manage levels and records from the Admin tab.</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
