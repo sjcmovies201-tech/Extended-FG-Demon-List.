@@ -24,5 +24,5 @@ const GRINDS_PAGE = {
 */
 const GRINDS = [
   { name: "Innards",   creator: "Kaito", video: "https://www.youtube.com/watch?v=r2BI-N6rcas", gameId: "54588072", best: 96, notes: "Basically done." },
-  { name: "The Flawless",   creator: "fin", video: "https://www.youtube.com/watch?v=RHOCE37dP2A", gameId: "21280210", best: 47, notes: "ok" },
+  { name: "The Flawless",   creator: "fin", video: "https://www.youtube.com/watch?v=RHOCE37dP2A", gameId: "21280210", best: 54, notes: "ok" },
 ];
