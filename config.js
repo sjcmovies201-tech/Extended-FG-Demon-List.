@@ -39,6 +39,7 @@ const DEMO_LEVELS = [
   { name: "Through The Decay",  creator: "Spark", verifier: "GDStripes", video: "https://www.youtube.com/watch?v=yMvLRvXmDxc", gameId: "114933189", requirement: 100 },
   { name: "Rose",  creator: "Eggsncoffee", verifier: "Particlez", video: "https://youtu.be/cZh-P3mugO4?si=NthPr_mivTGZAdyT", gameId: "90763727", requirement: 100 },
   { name: "Night Terrors",  creator: "Hinds", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=nZAxgcF4VtI", gameId: "15395840", requirement: 100 },
+  { name: "Super Mario Wave",  creator: "Toma36", verifier: "Particlez", video: "https://youtu.be/2-AghAbJ7_4?si=3Q9kPugsRHsQYNx1", gameId: "72240540", requirement: 100 },
   { name: "Fallen Club",  creator: "Trideapthbear", verifier: "Particlez", video: "https://youtu.be/cWRfUyqqPD4?si=ehRLaamSFkMOSRFA", gameId: "91180803", requirement: 100 },
   { name: "Magma Bound",  creator: "ScorchVX", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=Jr2Z4-aCXS0&t=3s", gameId: "56568010", requirement: 100 },
   { name: "Windy Landscape",  creator: "Woogi411", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=dKY5rKxTK0s", gameId: "4957691", requirement: 100 },
@@ -70,4 +71,5 @@ const DEMO_RECORDS = [
   { player: "StartingXY", level: "Thermodynamix", progress: 100, video: "https://www.youtube.com/watch?v=31RfJQ822Ug" },
   { player: "StartingXY", level: "Nine Circles", progress: 100, video: "https://www.youtube.com/watch?v=jbWbADw4nIA" },
   { player: "StartingXY", level: "Megalovania", progress: 100, video: "https://www.youtube.com/watch?v=ZCB_gYNOhSk" },
+  { player: "Particlez", level: "Super Mario Wave", progress: 100, video: "https://youtu.be/2-AghAbJ7_4?si=3Q9kPugsRHsQYNx1" },
 ];
