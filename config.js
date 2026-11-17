@@ -47,6 +47,7 @@ const DEMO_LEVELS = [
   { name: "Future Funk",  creator: "JonathanGD", verifier: "Particlez", video: "https://youtu.be/e7lbUH2bgnY?si=mc7KGh7LZzGjw1-H", gameId: "44062068", requirement: 100 },
   { name: "Thermodynamix",  creator: "Flash", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=31RfJQ822Ug", gameId: "38445559", requirement: 100 },
   { name: "Nine Circles",  creator: "Zobros", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=jbWbADw4nIA", gameId: "38445559", requirement: 100 },
+  { name: "Temple Of Time",  creator: "DavJT", verifier: "Driftaway", video: "https://youtu.be/DZEFTNVbcLw?is=WucKWZxsM0BCqWoj", gameId: "68408784", requirement: 100 },
   { name: "Megalovania",  creator: "EternaswipVMAX", verifier: "StartingXY", video: "https://www.youtube.com/watch?v=ZCB_gYNOhSk", gameId: "15427055", requirement: 100 },
 ];
 const DEMO_RECORDS = [
@@ -74,4 +75,5 @@ const DEMO_RECORDS = [
   { player: "StartingXY", level: "Megalovania", progress: 100, video: "https://www.youtube.com/watch?v=ZCB_gYNOhSk" },
   { player: "Particlez", level: "Super Mario Wave", progress: 100, video: "https://youtu.be/2-AghAbJ7_4?si=3Q9kPugsRHsQYNx1" },
   { player: "Particlez", level: "Poltergeist", progress: 100, video: "https://youtu.be/kSI3N01BMyg?si=rBTI1hxdc_Jloom6" },
+  { player: "Driftaway", level: "Temple Of Time", progress: 100, video: "https://youtu.be/DZEFTNVbcLw?is=WucKWZxsM0BCqWoj" },
 ];
