@@ -7,7 +7,7 @@
 
 /* ---------- THE GRINDS PAGE TITLE ---------- */
 const GRINDS_PAGE = {
-  title: "My Grinds",                          // big title at the top of the Grinds page
+  title: "Our Grinds",                          // big title at the top of the Grinds page
   tagline: "Levels we are working on right now."  // small text under it
 };
 
