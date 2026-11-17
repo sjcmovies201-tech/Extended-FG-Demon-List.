@@ -52,3 +52,27 @@ input[type=text], input[type=url], input[type=number], input[type=email], input[
 .admin-line { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
 .admin-line .grow { flex: 1; min-width: 160px; }
 .note { color: var(--muted); font-size: .9rem; }
+
+/* ---------- video thumbnails ---------- */
+.thumb { width: 120px; height: 68px; object-fit: cover; border-radius: 6px; flex-shrink: 0; background: #000; }
+.thumb.none { display: flex; align-items: center; justify-content: center; color: var(--muted); background: var(--bg); border: 1px dashed var(--border); font-size: .75rem; }
+@media (max-width: 520px) { .thumb { width: 84px; height: 48px; } }
+
+/* ---------- grinds progress bar ---------- */
+.bar { height: 10px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin: 8px 0; }
+.bar span { display: block; height: 100%; background: var(--accent); }
+
+/* ---------- top switch (Demonlist / Grinds) and grinds toolbar ---------- */
+.modes { display: flex; justify-content: center; gap: 4px; padding: 10px; background: var(--card); border-bottom: 1px solid var(--border); }
+.modes button { border: 0; background: transparent; color: var(--muted); padding: 8px 22px; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: 600; }
+.modes button.active { background: var(--accent); color: #fff; }
+.tools { display: flex; gap: 8px; max-width: 800px; margin: 0 auto; padding: 8px 16px; flex-wrap: wrap; }
+.tools input[type=search] { flex: 1; min-width: 180px; margin-bottom: 0; }
+.tools select { width: auto; flex: 0 0 auto; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 1rem; }
+
+/* ---------- link-style nav button (Submit record) and notices ---------- */
+nav a.navlink { border: 1px solid var(--border); background: var(--card); color: var(--text); padding: 8px 16px; border-radius: 8px; font-size: 1rem; text-decoration: none; }
+nav a.navlink:hover { border-color: var(--accent); }
+.notice { max-width: 800px; margin: 8px auto; padding: 10px 14px; border-radius: 8px; background: #fff2c2; color: #4d3b00; border: 1px solid #e6c55a; font-size: .95rem; }
+.notice ul { margin: 6px 0 0 18px; padding: 0; }
+.fatal { max-width: 800px; margin: 8px auto; padding: 12px 14px; border-radius: 8px; background: #b3261e; color: #fff; }
