@@ -8,7 +8,7 @@
 /* ---------- THE GRINDS PAGE TITLE ---------- */
 const GRINDS_PAGE = {
   title: "My Grinds",                          // big title at the top of the Grinds page
-  tagline: "Levels I'm working on right now."  // small text under it
+  tagline: "Levels we are working on right now."  // small text under it
 };
 
 /* ---------- YOUR GRINDS ----------
@@ -23,7 +23,6 @@ const GRINDS_PAGE = {
    notes     = anything you want to say about it (or "")
 */
 const GRINDS = [
-  { name: "Example Grind One",   creator: "Builder A", video: "", gameId: "", best: 12, notes: "Just started this one." },
-  { name: "Example Grind Two",   creator: "Builder B", video: "", gameId: "", best: 47, notes: "" },
-  { name: "Example Grind Three", creator: "Builder C", video: "", gameId: "", best: 0,  notes: "" },
+  { name: "Innards",   creator: "Kaito", video: "https://www.youtube.com/watch?v=r2BI-N6rcas", gameId: "54588072", best: 96, notes: "Basically done." },
+  { name: "The Flawless",   creator: "fin", video: "https://www.youtube.com/watch?v=RHOCE37dP2A", gameId: "21280210", best: 47, notes: "ok" },
 ];
