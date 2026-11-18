@@ -77,4 +77,6 @@ const DEMO_RECORDS = [
   { player: "Particlez", level: "Poltergeist", progress: 100, video: "https://youtu.be/kSI3N01BMyg?si=rBTI1hxdc_Jloom6" },
   { player: "Driftaway", level: "Temple Of Time", progress: 100, video: "https://youtu.be/DZEFTNVbcLw?is=WucKWZxsM0BCqWoj" },
   { player: "Driftaway", level: "Nine Circles", progress: 100, video: "https://youtu.be/1vrGPYoXFMI?is=lNnkuC62ubX6HRJN" },
+  { player: "Driftaway", level: "Future Funk", progress: 100, video: "https://youtu.be/3Lu0LKVeXmQ?is=GECuAi2peYJJDdGH" },
+  { player: "Driftaway", level: "Megalovania", progress: 100, video: "https://youtu.be/PADNAfafecQ?is=A0JL10oQnIwK1JVY" },
 ];
