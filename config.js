@@ -76,4 +76,5 @@ const DEMO_RECORDS = [
   { player: "Particlez", level: "Super Mario Wave", progress: 100, video: "https://youtu.be/2-AghAbJ7_4?si=3Q9kPugsRHsQYNx1" },
   { player: "Particlez", level: "Poltergeist", progress: 100, video: "https://youtu.be/kSI3N01BMyg?si=rBTI1hxdc_Jloom6" },
   { player: "Driftaway", level: "Temple Of Time", progress: 100, video: "https://youtu.be/DZEFTNVbcLw?is=WucKWZxsM0BCqWoj" },
+  { player: "Driftaway", level: "Nine Circles", progress: 100, video: "https://youtu.be/1vrGPYoXFMI?is=lNnkuC62ubX6HRJN" },
 ];
